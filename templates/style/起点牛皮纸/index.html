@@ -1,0 +1,155 @@
+<!--
+path 目录
+history 章节编号
+novelName 小说名称
+authorName 作者名称
+imgData 封面图片数据流
+novelType 小说类型
+launchTime 发布时间
+chapterName 章节名称
+novelTime 章节发布时间
+content 内容
+chapterWords 字数
+fontName 字体名称
+-->
+
+<!DOCTYPE html>
+<html class="" id="j-readPage" path = {{path}}>
+	<head>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='style/起点牛皮纸/logo.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/起点牛皮纸/index.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layui/css/layui.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='layui/layui.all.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='style/起点牛皮纸/index.js') }}"type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="../static/fontsCss/{{fontName}}.css">
+		<meta charset="UTF-8">
+		<title>LiView-{{novelName}}</title>
+	</head>
+	<div class="read-main-wrap font-family01" id="j_readMainWrap" style="font-family:{{fontName}}">
+		<div id="j_chapterBox" data-l1="3">
+
+
+			<div class="text-wrap" id="j_textWrap" history = "cover">
+				<div class="read-container">
+					<div class="book-cover-wrap">
+						<div class="book-photo">
+							<img src="{{imgData}}">
+						</div>
+						<h1 id="novelName">{{novelName}}</h1>
+
+						<h2>{{authorName}}</a>著</h2>
+
+						<div class="info-list cf">
+							<ul>
+								<li>
+									{% if novelType != None %}
+									<em>{{novelType}}</em>
+									{% else %}
+									<em>--</em>
+									{% endif %}
+									<span>类型</span>
+								</li>
+								<li>
+									{% if launchTime != None %}
+									<em>{{launchTime}}</em>
+									{% else %}
+									<em>--</em>
+									{% endif %}
+									<span>上架</span>
+								</li>
+								<li>
+									<p><em>TXT</em></p><span>格式</span>
+								</li>
+							</ul>
+						</div>
+						<h3>开启《{{novelName}}》扣人心弦的{{novelType}}之旅</h3>
+
+
+
+						<h5>本样式由LiView-Reader提供</h5>
+
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="text-wrap" id="chapter-402733549" history = {{history}}>
+
+				<div class="main-text-wrap">
+					<div class="text-head">
+						<h3 class="j_chapterName">
+							<span class="content-wrap">{{chapterName}}</span>
+						</h3>
+						<div class="text-info cf">
+							<div class="info fl">
+								<i><i class="layui-icon">&#xe705;</i>{{novelName}}</i>
+
+								<i><i class="layui-icon">&#xe612;</i>{{authorName}}</i>
+
+								<i><i class="layui-icon">&#xe6b2;</i><span class="j_chapterWordCut">{{chapterWords}}</span>字</i>
+								<i><i class="layui-icon">&#xe67d;</i><span class="j_updateTime">{{novelTime}}</span></i>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="read-content j_readContent" id="">
+						{{content|safe}}
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	</div>
+	</div>
+	<div class="float-wrap" id="j_floatWrap" data-l1="2">
+		<div class="left-bar-list" id="j_leftBarList">
+			<dl>
+				<!--左侧功能栏-->
+				<dd id="j_navCatalogBtn" data-eid="qd_R42" class="catalog">
+				    <a href="javascript:" onclick="catalogFun()"><i><i class="layui-icon">&#xe656;</i><span>目录</span></i></a>
+				    <div class="new-guide" id="j-sectionCommentGuide">
+				        <cite></cite>
+				    </div>
+				</dd>
+				<dd id="j_navSettingBtn">
+				    <a href="javascript:" onclick="settingFun()"><i><i class="layui-icon">&#xe716;</i><span>设置</span></i></a>
+				    <div class="guide-box">
+				        <cite></cite>
+				    </div>
+				    <div class="new-guide" id="j-sectionCommentGuide">
+				        <cite></cite>
+				    </div>
+				</dd>
+				<!--
+				<dd data-eid="qd_R84">
+				    <a class="add-book"><i><i class="layui-icon">&#xe68f;</i><span>收藏</span></i></a>
+				    <div class="guide-box">
+				        <cite></cite>
+				    </div>
+				</dd>
+				-->
+				<dd data-eid="qd_R85">
+				    <a target="_blank"><i><i class="layui-icon">&#xe62c;</i><span>统计</span></i></a>
+				    <div class="guide-box">
+				    </div>
+				</dd>
+
+				<dd data-eid="qd_R85" id="page">
+				    <a target="_blank"><i><i class="layui-icon">&#xe68e;</i><span>书页</span></i></a>
+				    <div class="guide-box">
+				    </div>
+				</dd>
+
+			</dl>
+		</div>
+	</div>
+	</body>
+</html>

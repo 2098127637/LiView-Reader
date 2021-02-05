@@ -1,0 +1,73 @@
+<!--
+名称 name
+路径 path
+封面 cover
+介绍 introduce
+新书？new true/false
+comment json {'userName': 'yxhhh2', 'createdAt': '2020-03-17T12:38:59.789Z', 'content': '主子，主子，除了我大清还有地方也这么叫啊'}
+-->
+<fieldset class="layui-elem-field" path="{{path}}">
+                <legend>{{name}}</legend>
+                <div class="layui-field-box">
+                  <div class="layui-row layui-col-space10">
+                    <div class="layui-col-md2" style="margin：0 auto;">
+                        <img src="{{cover}}" style="margin：0 auto;">
+                    </div>
+                    <div class="layui-col-md4">
+                        <blockquote class="layui-elem-quote">
+                            <h2><b>介绍：</b></h2>
+                            </br>
+                            {{introduce}}
+                            </br>
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">
+                                        <i class="layui-icon">&#xe639;</i> 编辑简介
+                            </button>
+
+                        </blockquote>
+
+                    </div>
+                    <div class="layui-col-md6">
+                        <blockquote class="layui-elem-quote">
+                            <button type="button" class="layui-btn layui-btn-radius layui-btn-normal" id="readButton" new="{{new}}" path="{{path}}">
+                                <i class="layui-icon">&#xe705;</i> 阅读
+                                {% if new == true %}
+                                <span class="layui-badge">新书籍，点此导入</span>
+                                {% else %}
+                                {% endif %}
+                            </button>
+                        </blockquote>
+                        <blockquote class="layui-elem-quote">
+                            <button type="button" class="layui-btn layui-btn-normal">
+                                <i class="layui-icon">&#xe656;</i> 我的读后
+
+                            </button>
+                            <button type="button" class="layui-btn layui-btn-normal">
+                                <i class="layui-icon">&#xe62c;</i> 本书统计
+                            </button>
+                            <button type="button" class="layui-btn layui-btn-normal">
+                                <i class="layui-icon">&#xe60a;</i> 更改信息
+                            </button>
+                            <button type="button" class="layui-btn layui-btn-normal">
+                                <i class="layui-icon">&#xe67d;</i> 导出epub
+                            </button>
+                        </blockquote>
+                        <ul class="layui-timeline">
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <h3 class="layui-timeline-title">{{comment['userName']}}</h3>
+                                    <p>
+                                        <b>{{comment['createdAt']}}</b>
+                                        </br>
+                                        {{comment['content']}}
+                                    </p>
+                                    <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">
+                                        <i class="layui-icon">&#xe629;</i> 查看更多评论
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+            </fieldset>
